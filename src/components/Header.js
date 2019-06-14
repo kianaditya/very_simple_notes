@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Style = {
-    border: '1px solid red'
+    border: '1px solid red',
+    width: '100%'
 }
 
 const Header = () => {
