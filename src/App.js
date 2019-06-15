@@ -19,6 +19,10 @@ const App = () => {
     setNotes([...notes,blocks]);
     setEditorState(EditorState.createEmpty())
   };
+
+  const clearSavedNotes = () => {
+    setNotes([])
+  }
   return (
     <Container>
       <Row>
@@ -26,7 +30,7 @@ const App = () => {
       </Row>
       <Row>
         <Col sm={4}>
-          <NotesList notes={notes} />
+          <NotesList notes={notes} clearSavedNotes={clearSavedNotes} />
         </Col>
         <Col sm={8}>
           <InputArea

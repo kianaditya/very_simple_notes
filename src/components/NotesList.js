@@ -23,6 +23,7 @@ const NotesList = props => {
   return (
     <div style={Style}>
       <h1>NotesList</h1>
+      <button onClick={props.clearSavedNotes}>Clear Notes</button>
       <>{note}</>
     </div>
   );
