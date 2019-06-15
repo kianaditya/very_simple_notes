@@ -1,5 +1,5 @@
 import React from "react";
-import { convertToRaw } from 'draft-js';
+import Note from "./Note";
 
 const Style = {
   border: "1px solid blue",
@@ -7,13 +7,27 @@ const Style = {
 };
 
 const NotesList = props => {
-    const currentContent = props.editorState.getCurrentContent()
-    const text = convertToRaw(currentContent).blocks.map(row =>  <p>{row.text}</p>)
+  const notes = props.notes.map(contentState => {
+    return contentState.getBlocksAsArray();
+  });
+
+  const note = notes.map(note => {
+    return (
+      <>
+        {note.map(textLine => (
+          <>
+            <Note text={textLine.text} />
+          </>
+        ))}
+        <hr />
+      </>
+    );
+  });
+
   return (
     <div style={Style}>
       <h1>NotesList</h1>
-      <>{console.log(convertToRaw(currentContent).blocks[0].text)}</>
-      <>{text}</>
+      <>{note}</>
     </div>
   );
 };

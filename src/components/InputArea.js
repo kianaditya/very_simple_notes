@@ -10,6 +10,7 @@ const InputArea = props => {
   return (
     <div style={Style}>
       <h1>InputArea</h1>
+      <button onClick={props.saveNote}>Save</button>
       <Editor editorState={props.editorState} onChange = {props.setEditorState} />
     </div>
   );
