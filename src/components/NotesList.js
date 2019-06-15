@@ -10,9 +10,9 @@ const NotesList = props => {
   const note = props.notes.map(note => {
     return (
       <>
-        {note.map(textLine => (
+        {note.map((textLine,index) => (
           <>
-            <Note text={textLine.text} />
+            <Note text={textLine.text} index={index} />
           </>
         ))}
         <hr />
