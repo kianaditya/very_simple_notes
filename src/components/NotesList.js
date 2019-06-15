@@ -7,11 +7,7 @@ const Style = {
 };
 
 const NotesList = props => {
-  const notes = props.notes.map(contentState => {
-    return contentState.getBlocksAsArray();
-  });
-
-  const note = notes.map(note => {
+  const note = props.notes.map(note => {
     return (
       <>
         {note.map(textLine => (

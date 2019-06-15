@@ -15,7 +15,8 @@ const App = () => {
 
   const saveNote = () => {
     const contentState = editorState.getCurrentContent();
-    setNotes([contentState]);
+    const blocks = contentState.getBlocksAsArray()
+    setNotes([...notes,blocks]);
     setEditorState(EditorState.createEmpty())
   };
   return (
