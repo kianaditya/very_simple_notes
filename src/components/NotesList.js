@@ -7,16 +7,16 @@ const Style = {
 };
 
 const NotesList = props => {
-  const note = props.notes.map(note => {
+  const note = props.notes.map((note,index) => {
     return (
-      <>
+      <div onClick={() => props.loadNote(index)}>
         {note.map((textLine,index) => (
           <>
             <Note text={textLine.text} index={index} />
           </>
         ))}
         <hr />
-      </>
+      </div>
     );
   });
 

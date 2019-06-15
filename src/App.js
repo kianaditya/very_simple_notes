@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NotesList from "./components/NotesList";
 import InputArea from "./components/InputArea";
-import { EditorState } from "draft-js";
+import { EditorState, ContentState } from "draft-js";
 
 const App = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
@@ -15,14 +15,22 @@ const App = () => {
 
   const saveNote = () => {
     const contentState = editorState.getCurrentContent();
-    const blocks = contentState.getBlocksAsArray()
-    setNotes([...notes,blocks]);
-    setEditorState(EditorState.createEmpty())
+    const blocks = contentState.getBlocksAsArray();
+    setNotes([...notes, blocks]);
+    setEditorState(EditorState.createEmpty());
   };
 
   const clearSavedNotes = () => {
-    setNotes([])
-  }
+    setNotes([]);
+  };
+
+  const loadNoteOnClick = index => {
+    const newNotes = notes.filter(element => notes.indexOf(element) !== index);
+    setNotes([...newNotes]);
+    const contentState = ContentState.createFromBlockArray(notes[index]);
+    setEditorState(EditorState.createWithContent(contentState));
+  };
+
   return (
     <Container>
       <Row>
@@ -30,7 +38,11 @@ const App = () => {
       </Row>
       <Row>
         <Col sm={4}>
-          <NotesList notes={notes} clearSavedNotes={clearSavedNotes} />
+          <NotesList
+            notes={notes}
+            clearSavedNotes={clearSavedNotes}
+            loadNote={loadNoteOnClick}
+          />
         </Col>
         <Col sm={8}>
           <InputArea
