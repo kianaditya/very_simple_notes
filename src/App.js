@@ -11,6 +11,7 @@ import { EditorState } from 'draft-js'
 
 const App = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty())
+  
   return (
     <Container>
       <Row>
@@ -18,7 +19,7 @@ const App = () => {
       </Row>
       <Row>
         <Col sm={4}>
-          <NotesList />
+          <NotesList editorState={editorState} />
         </Col>
         <Col sm={8}>
           <InputArea
