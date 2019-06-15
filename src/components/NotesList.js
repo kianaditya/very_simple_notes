@@ -19,10 +19,10 @@ const NotesList = props => {
       </div>
     );
   });
-
+  const notesCount = props.notes.length
   return (
     <div style={Style}>
-      <h1>NotesList</h1>
+      <h1>NotesList {notesCount} notes</h1>
       <button onClick={props.clearSavedNotes}>Clear Notes</button>
       <>{note}</>
     </div>

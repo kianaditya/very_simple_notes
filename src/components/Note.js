@@ -2,7 +2,7 @@ import React from "react";
 
 const Note = props => {
   return (
-    <p>
+    <div>
       {props.index === 0 ? (
         <h4>
           {props.text}
@@ -14,7 +14,7 @@ const Note = props => {
           <br />
         </>
       )}
-    </p>
+    </div>
   );
 };
 

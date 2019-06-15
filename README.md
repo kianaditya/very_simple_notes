@@ -1,3 +1,3 @@
-# Very simple Notes App using https://draftjs.org
+# Very simple Notes App using [DraftJs](https://draftjs.org)
 
 Hosted [here](https://verysimplenotes.adityanaik.now.sh/)

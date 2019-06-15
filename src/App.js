@@ -25,8 +25,12 @@ const App = () => {
   };
 
   const loadNoteOnClick = index => {
-    const newNotes = notes.filter(element => notes.indexOf(element) !== index);
-    setNotes([...newNotes]);
+    // saveNote();
+    const newNotes = notes.splice(index,1);
+    const contentState1 = editorState.getCurrentContent();
+    const blocks = () => contentState1.hasText() ? contentState1.getBlocksAsArray(): null;
+    console.log(newNotes.length)
+    setNotes([...newNotes,blocks]);
     const contentState = ContentState.createFromBlockArray(notes[index]);
     setEditorState(EditorState.createWithContent(contentState));
   };
