@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from "react";
+import { Editor } from "draft-js";
 
-export class InputArea extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
-}
+const Style = {
+  border: "1px solid purple",
+  width: "100%",
+};
 
-export default InputArea
+const InputArea = props => {
+  return (
+    <div style={Style}>
+      <h1>InputArea</h1>
+      <button onClick={props.saveNote}>Save</button>
+      <Editor editorState={props.editorState} onChange = {props.setEditorState} />
+    </div>
+  );
+};
+
+export default InputArea;
